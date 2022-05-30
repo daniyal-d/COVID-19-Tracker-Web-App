@@ -247,7 +247,7 @@ country_selection = st.selectbox("View info for a specific country", data.state_
 st.text(data.show_state_info())
 st.write("")
 st.write("On the map below, each dot represents a country where COVID-19 information has been collected. A larger dot represents a higher number of cases. Click a country's dot to view its cases, deaths, and recoveries")
-m = folium.Map(max_bounds=True)
+m = folium.Map()
 
 for index, geo_info in df.iterrows():
     opacity_for_fill = 0
