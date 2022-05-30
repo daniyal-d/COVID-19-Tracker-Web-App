@@ -10,7 +10,7 @@ import folium
 st.title("COVID-19 Tracker")
 st.subheader(
     "This application shows all current COVID-19 case numbers, deaths, and recoveries on a worldwide and country-by-country basis")
-st.caption("Created by Daniyal Dawood TEST TEST")
+st.caption("Created by Daniyal Dawood")
 
 key = "t37zQwBDTofT"  # API key
 p_token = "tipxNh4q9VpT"  # API token
