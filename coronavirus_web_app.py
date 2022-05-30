@@ -246,8 +246,7 @@ st.write("")
 country_selection = st.selectbox("View info for a specific country", data.state_list())
 st.text(data.show_state_info())
 st.write("")
-st.write("On the maps below, each dot represents a country where COVID-19 information has been collected. On the "
-         "second map, click a country's dot to view its cases, deaths, and recoveries")
+st.write("On the map below, each dot represents a country where COVID-19 information has been collected. A larger dot represents a higher number of cases. Click a country's dot to view its cases, deaths, and recoveries")
 m = folium.Map()
 
 for index, geo_info in df.iterrows():
@@ -269,7 +268,5 @@ for index, geo_info in df.iterrows():
                   Deaths: {geo_info["states_deaths"]}
                   Recoveries: {geo_info["states_recovered"]}                 
                   """).add_to(m)
-
-
-st.map(df)
+    
 folium_static(m)
