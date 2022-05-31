@@ -257,8 +257,11 @@ for index, geo_info in df.iterrows():
         opacity_for_fill = .25
     else:
         opacity_for_fill = .15
+
     radius_size = 0
-    if int(geo_info["states_cases"].replace(',','')) < 1000000:
+    if int(geo_info["states_cases"].replace(',','')) < 100000:
+        radius_size = int(geo_info["states_cases"].replace(',',''))/2
+    elif int(geo_info["states_cases"].replace(',','')) < 1000000:
         radius_size = int(geo_info["states_cases"].replace(',',''))/8
     else:
         radius_size = int(geo_info["states_cases"].replace(',',''))/100
