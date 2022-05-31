@@ -7,8 +7,8 @@ from streamlit_folium import folium_static
 import pandas as pd
 import folium
 
-key = "t37zQwBDTofT"
-p_token = "tipxNh4q9VpT"
+key = st.secrets["key"]
+p_token = st.secrets["p_token"]
 
 st.title("COVID-19 Tracker")
 st.subheader(
