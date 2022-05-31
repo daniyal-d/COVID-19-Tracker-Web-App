@@ -257,8 +257,13 @@ for index, geo_info in df.iterrows():
         opacity_for_fill = .15
     else:
         opacity_for_fill = .1
+    radius_size = 0
+    if int(geo_info["states_cases"].replace(',','')) < 1000000:
+        radius_size = int(geo_info["states_cases"].replace(',',''))/10
+    else:
+        radius_size = int(geo_info["states_cases"].replace(',',''))/100
 
-    folium.Circle(radius=int(geo_info["states_cases"].replace(',',''))/100, fill=True,
+    folium.Circle(radius=radius_size, fill=True,
                   fill_color="#FF160C", fill_opacity=opacity_for_fill, weight=.5,
                   location=[geo_info["latitude"], geo_info["longitude"]], color="#FF160C",
                   popup=f"""{geo_info["name"]}
