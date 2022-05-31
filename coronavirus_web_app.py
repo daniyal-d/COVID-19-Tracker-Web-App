@@ -252,7 +252,7 @@ for index, geo_info in df.iterrows():
     if int(geo_info["states_cases"].replace(',','')) > 10000000:
         opacity_for_fill = .5
     elif int(geo_info["states_cases"].replace(',','')) > 4000000:
-        opacity_for_fill = .3
+        opacity_for_fill = .4
     elif int(geo_info["states_cases"].replace(',','')) > 1000000:
         opacity_for_fill = .15
     else:
