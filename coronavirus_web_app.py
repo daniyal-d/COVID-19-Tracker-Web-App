@@ -50,7 +50,8 @@ class Tracker:
                 return data["world_cases"]
 
     def state_info(self):
-        return self.stats["states"]
+        country = self.stats["states"]
+        return country
 
     def state_list(self):
         country = self.stats["states"]
