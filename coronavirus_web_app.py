@@ -13,7 +13,7 @@ st.subheader(
 st.caption("Created by Daniyal Dawood")
 
 class Tracker:
-    def __init__(self, st.secrets["key"], st.secrets["p_token"]):
+    def __init__(self, st.secrets.key, st.secrets.p_token):
         self.key = st.secrets["key"]
         self.p_token = st.secrets["p_token"]
         self.params = {
