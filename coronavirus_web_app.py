@@ -7,23 +7,26 @@ from streamlit_folium import folium_static
 import pandas as pd
 import folium
 
+key = "t37zQwBDTofT"
+p_token = "tipxNh4q9VpT"
+
 st.title("COVID-19 Tracker")
 st.subheader(
     "This application shows all current COVID-19 case numbers, deaths, and recoveries on a worldwide and country-by-country basis")
 st.caption("Created by Daniyal Dawood")
 
 class Tracker:
-    def __init__(self, st.secrets.key, st.secrets.p_token):
-        self.key = st.secrets["key"]
-        self.p_token = st.secrets["p_token"]
+    def __init__(self, key, p_token):
+        self.key = key
+        self.p_token = p_token
         self.params = {
             "key": self.key
         }
         self.stats = self.data()
 
     def data(self):
-        case = requests.get(f"https://www.parsehub.com/api/v2/projects/{st.secrets["p_token"]}/last_ready_run/data",
-                            params={"api_key": st.secrets["key"]})  # Use web scraping to find data
+        case = requests.get(f"https://www.parsehub.com/api/v2/projects/{p_token}/last_ready_run/data",
+                            params={"api_key": key})  # Use web scraping to find data
         stats = json.loads(case.text)  # Use the JSON format of the data
         return stats
 
@@ -69,7 +72,7 @@ Deaths: {data['states_deaths']}
 Recoveries: {data['states_recovered']}""")
 
     def new_info(self):
-        hello = requests.post(f'https://www.parsehub.com/api/v2/projects/{st.secrets["p_token"]}/run', params={"api_key": st.secrets["key"]})
+        hello = requests.post(f'https://www.parsehub.com/api/v2/projects/{p_token}/run', params={"api_key": key})
         stats = json.loads(hello.text)
 
         def update():
@@ -86,7 +89,7 @@ Recoveries: {data['states_recovered']}""")
         thread.start()
 
 
-data = Tracker(st.secrets["key"], st.secrets["p_token"])
+data = Tracker(key, p_token)
 data.new_info()
 
 list_of_geo_info = [(33.7680065, 66.2385139), (41.000028, 19.9999619), (28.0000272, 2.9999825), (42.5407167, 1.5732033),
