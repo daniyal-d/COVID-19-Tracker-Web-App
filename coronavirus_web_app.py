@@ -12,10 +12,6 @@ st.subheader(
     "This application shows all current COVID-19 case numbers, deaths, and recoveries on a worldwide and country-by-country basis")
 st.caption("Created by Daniyal Dawood")
 
-key = "t37zQwBDTofT"  # API key
-p_token = "tipxNh4q9VpT"  # API token
-
-
 class Tracker:
     def __init__(self, st.secrets["key"], st.secrets["p_token"]):
         self.key = st.secrets["key"]
