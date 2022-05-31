@@ -252,11 +252,11 @@ for index, geo_info in df.iterrows():
     if int(geo_info["states_cases"].replace(',','')) > 10000000:
         opacity_for_fill = .5
     elif int(geo_info["states_cases"].replace(',','')) > 4000000:
-        opacity_for_fill = .4
+        opacity_for_fill = .3
     elif int(geo_info["states_cases"].replace(',','')) > 1000000:
-        opacity_for_fill = .15
+        opacity_for_fill = .25
     else:
-        opacity_for_fill = .1
+        opacity_for_fill = .15
     radius_size = 0
     if int(geo_info["states_cases"].replace(',','')) < 1000000:
         radius_size = int(geo_info["states_cases"].replace(',',''))/5
