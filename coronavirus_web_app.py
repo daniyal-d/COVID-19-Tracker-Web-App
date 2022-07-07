@@ -278,4 +278,4 @@ for index, geo_info in df.iterrows():
     
 # st_map = st_folium(m)
 
-st.write(m)
+st.write(display(m))
