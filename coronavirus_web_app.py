@@ -3,7 +3,7 @@ import time
 import requests
 import threading
 import streamlit as st
-from streamlit_folium import folium_static
+from streamlit_folium import st_folium
 import pandas as pd
 import folium
 
