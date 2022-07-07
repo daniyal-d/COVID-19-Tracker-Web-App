@@ -15,7 +15,7 @@ st.subheader(
     "This application shows all current COVID-19 case numbers, deaths, and recoveries on a worldwide and country-by-country basis")
 st.caption("Created by Daniyal Dawood")
 
-@st.cache
+
 class Tracker:
     def __init__(self, key, p_token):
         self.key = key
