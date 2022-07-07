@@ -24,35 +24,38 @@ class Tracker:
             "key": self.key
         }
         self.stats = self.data()
-
+    
+    @st.cache
     def data(self):
         case = requests.get(f"https://www.parsehub.com/api/v2/projects/{p_token}/last_ready_run/data",
                             params={"api_key": key})  # Use web scraping to find data
         stats = json.loads(case.text)  # Use the JSON format of the data
         return stats
-
+    
+    @st.cache
     def worldwide_cases(self):
         world = self.stats["world_total"]  # Find total worldwide cases
         for data in world:
             if data["name"] == "Coronavirus Cases:":
                 return data["world_cases"]
-
+    
+    @st.cache
     def worldwide_deaths(self):
         world = self.stats["world_total"]  # Find total worldwide deaths
         for data in world:
             if data["name"] == "Deaths:":
                 return data["world_cases"]
-
+    @st.cache
     def worldwide_recovered(self):
         world = self.stats["world_total"]  # Find total worldwide recoveries
         for data in world:
             if data["name"] == "Recovered:":
                 return data["world_cases"]
-
+    @st.cache
     def state_info(self):
         country = self.stats["states"]
         return country
-
+    @st.cache
     def state_list(self):
         country = self.stats["states"]
         list_of_countries = []
@@ -60,7 +63,7 @@ class Tracker:
             list_of_countries.append(data["name"])
         list_of_countries.sort()
         return list_of_countries
-
+    @st.cache
     def show_state_info(self):
         country = self.stats["states"]  # Find info for a specific country
         state = country_selection
@@ -71,11 +74,11 @@ class Tracker:
 Cases: {data['states_cases']}
 Deaths: {data['states_deaths']} 
 Recoveries: {data['states_recovered']}""")
-
+    @st.cache
     def new_info(self):
         hello = requests.post(f'https://www.parsehub.com/api/v2/projects/{p_token}/run', params={"api_key": key})
         stats = json.loads(hello.text)
-
+        @st.cache
         def update():
             time.sleep(0.1)
             old_info = self.stats
