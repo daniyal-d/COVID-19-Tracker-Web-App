@@ -275,4 +275,4 @@ for index, geo_info in df.iterrows():
                   Recoveries: {geo_info["states_recovered"]}                 
                   """).add_to(m)
     
-folium_static(m)
+st_folium(m)
