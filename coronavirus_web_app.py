@@ -3,7 +3,7 @@ import time
 import requests
 import threading
 import streamlit as st
-from streamlit_folium import st_folium
+from streamlit_folium import folium_static
 import pandas as pd
 import folium
 
@@ -276,4 +276,4 @@ for index, geo_info in df.iterrows():
                   Recoveries: {geo_info["states_recovered"]}                 
                   """).add_to(m)
     
-st_map = st_folium(m)
+folium_static(m)
