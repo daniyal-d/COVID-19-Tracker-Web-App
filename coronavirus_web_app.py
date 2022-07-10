@@ -277,3 +277,10 @@ for index, geo_info in df.iterrows():
                   """).add_to(m)
     
 folium_static(m)
+
+make_map_responsive= """
+ <style>
+ [title~="st.iframe"] { width: 100%}
+ </style>
+"""
+st.markdown(make_map_responsive, unsafe_allow_html=True)
